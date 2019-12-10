@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  # 管理者
   devise_for :admins
+  namespace :admin do
+  	resources :users, only: [:show, :edit, :update, :index, :destroy]
+  end
+
+  # ユーザ
+  root to: 'posts#index'
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, only: [:edit, :update, :show]
+  get 'users/:id/exit' => 'users#exit', as: 'exit'
+  get 'users/:id/mypage' => 'users#mypage', as: 'mypage'
 end

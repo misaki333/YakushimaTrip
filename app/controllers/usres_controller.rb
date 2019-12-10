@@ -1,2 +1,0 @@
-class UsresController < ApplicationController
-end

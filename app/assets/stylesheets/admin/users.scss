@@ -1,3 +1,57 @@
-// Place all the styles related to the admin/users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.user_info {
+	border-collapse: separate;
+	padding-top: 20px;
+	padding-bottom: 10px;
+	width: 100%;
+}
+
+tr td {
+	padding-left: 10px;
+	border-bottom:1px dashed #ccc;
+}
+
+.form_control {
+	display: inline-block;
+}
+
+.admin_user_button {
+  display: block;
+  text-decoration: none;
+  margin-bottom: 10px;
+  line-height: 50px;
+  background: #4c6cb3;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+/* admin_user_edit */
+
+.admin_user_field {
+  margin-bottom: 0.75em;
+  width: 100%;
+}
+
+.admin_user_field input {
+  background: #fafafa;
+  border: none;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 50px;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.admin_user_field input:focus {
+  border-bottom: 1px dashed #ccc;
+  outline: none;
+}

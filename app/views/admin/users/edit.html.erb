@@ -1,0 +1,32 @@
+<div class="user_form">
+	<h2>ユーザ情報の編集</h2>
+
+	<%= form_for(@user) do |f| %>
+
+		<table class="admin_user_field">
+			<tr>
+      	<th><%= f.label :ユーザID %></th>
+				<td><%= f.text_field :id, autofocus: true, autocomplete: "id" %></td>
+			</tr>
+
+			<tr>
+			  <th><%= f.label :ユーザ名 %></th>
+				<td><%= f.text_field :name, autofocus: true, autocomplete: "name" %></td>
+			</tr>
+
+			<tr>
+				<th><%= f.label :メールアドレス %></th>
+				<td><%= f.email_field :email, autocomplete: "email" %></td>
+			</tr>
+		</table>
+
+		<div class="user_actions">
+			<%= f.submit "保存する", class: 'admin_user_button' %>
+		</div>
+	<% end %>
+
+</div>
+
+<div class="user_links">
+	 <%= link_to "トップページ", root_path %>
+</div>
