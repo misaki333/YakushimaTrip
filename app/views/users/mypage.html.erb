@@ -1,0 +1,15 @@
+<h2>マイページ</h2>
+
+  <div class=" user_menu">
+  	<%= link_to edit_user_path(@user.id), class: 'mypage_button' do %>
+  		<i class="fas fa-user-alt" style="font-size: 60px"></i>
+  	<% end %>
+
+  	<%= link_to edit_user_path(@user.id), class: 'mypage_button' do %>
+  		<i class="fas fa-pen" style="font-size: 60px"></i>
+  	<% end %>
+
+  	<%= link_to edit_user_path(@user.id), class: 'mypage_button' do %>
+  		<i class="far fa-heart" style="font-size: 60px"></i>
+  	<% end %>
+  </div>
