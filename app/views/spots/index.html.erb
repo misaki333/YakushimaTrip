@@ -1,0 +1,84 @@
+<table>
+<span>おすすめ</span>
+
+<% @random.each_slice(4) do |spot1, spot2, spot3, spot4| %>
+
+    <tr>
+      <td>
+     <% if spot1 != nil%>
+     <%= attachment_image_tag spot1, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+     <%= spot1.name %><br>
+     <%= spot1.category.name %>
+     <% end %>
+      </td>
+
+     <td>
+     <% if spot2 != nil%>
+     <%= attachment_image_tag spot2, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+     <%= spot2.name %><br>
+     <%= spot2.category.name %>
+     <% end %>
+     </td>
+
+     <% if spot3 != nil%>
+     <td>
+     <%= attachment_image_tag spot3, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+     <%= spot3.name %><br>
+     <%= spot3.category.name %>
+      <% end %>
+     </td>
+
+     <td>
+     <% if spot4 != nil%>
+     <%= attachment_image_tag spot4, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+     <%= spot4.name %><br>
+     <%= spot4.category.name %>
+     <% end %>
+     </td>
+    </tr>
+
+<% end %>
+
+
+
+
+
+<table>
+<span>一覧</span>
+<% @spots.each_slice(4) do |spot1, spot2, spot3, spot4| %>
+
+    <tr>
+      <td>
+     <% if spot1 != nil%>
+     <%= attachment_image_tag spot1, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+     <%= spot1.name %><br>
+     <%= spot1.category.name %>
+     <% end %>
+      </td>
+
+     <td>
+     <% if spot2 != nil%>
+     <%= attachment_image_tag spot2, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+     <%= spot2.name %><br>
+     <%= spot2.category.name %>
+     <% end %>
+     </td>
+
+     <% if spot3 != nil%>
+     <td>
+     <%= attachment_image_tag spot3, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+     <%= spot3.name %><br>
+     <%= spot3.category.name %>
+      <% end %>
+     </td>
+
+     <td>
+     <% if spot4 != nil%>
+     <%= attachment_image_tag spot4, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+     <%= spot4.name %><br>
+     <%= spot4.category.name %>
+     <% end %>
+     </td>
+    </tr>
+
+<% end %>

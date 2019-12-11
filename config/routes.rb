@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   end
 
   # ユーザ
-  root to: 'posts#index'
+  root to: 'spots#index'
   devise_for :users
   resources :users, only: [:edit, :update, :show]
   get 'users/:id/exit' => 'users#exit', as: 'exit'
   get 'users/:id/mypage' => 'users#mypage', as: 'mypage'
+  resources :spots, only: [:index, :show]
 end
