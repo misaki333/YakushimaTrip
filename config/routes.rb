@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   devise_for :admins
   namespace :admin do
   	resources :users, only: [:show, :edit, :update, :index, :destroy]
+    resources :spots, only: [:new, :create, :show, :edit, :update, :index, :destroy]
+    resources :categories, only: [:new, :create, :edit, :update, :destroy]
   end
 
   # ユーザ

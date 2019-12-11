@@ -1,7 +1,7 @@
 <div class="user_form">
 	<h2>ユーザ情報の編集</h2>
 
-	<%= form_for(@user) do |f| %>
+	<%= form_for(@user), url: edit_admin_users(@user.id) do |f| %>
 
 		<table class="admin_user_field">
 			<tr>
