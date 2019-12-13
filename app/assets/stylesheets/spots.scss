@@ -1,3 +1,16 @@
-// Place all the styles related to the Spots controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* show */
+
+.spot_category {
+	display:inline-block;
+	padding: 0.2em;
+	margin: 1em 0;
+	font-weight: bold;
+	border: solid 2px #009966;
+	background-color: #009966;
+	border-radius: 10px;
+}
+
+.category_name {
+	margin: 0;
+	padding: 0;
+}

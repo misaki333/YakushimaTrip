@@ -1,0 +1,15 @@
+<h2>観光地の詳細</h2>
+
+<label>ID</label>
+<%= @spot.id %>
+
+<label>名称</label>
+<%= @spot.name %>
+
+<%= attachment_image_tag @spot, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %>
+
+<label>カテゴリー</label>
+<%= @spot.category.name %>
+
+<label>説明</label>
+<%= @spot.content %>

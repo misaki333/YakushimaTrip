@@ -1,0 +1,21 @@
+<h2>観光地一覧</h2>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>名称</th>
+				<th>カテゴリー</th>
+				<th>住所</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @spots.each do |spot| %>
+			<tr>
+				<td><%= spot.id %></td>
+				<td><%= spot.name %></td>
+				<td><%= spot.category.name %></td>
+				<td><%= spot.address %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>

@@ -1,0 +1,17 @@
+<div class="spot_name"><%= @spot.name %></div>
+<div class="spot_category">
+	<div class="category_name"><%= @spot.category.name %></div>
+</div>
+<div class="address">住所：<%= @spot.address %></div>
+<div class="content"><%= @spot.content %></div>
+
+
+
+
+<% if @posts.any? %>
+<% @posts.each do |post| %>
+<%= post.impression %>
+<% else %>
+<p>投稿はまだありません。</p>
+<% end %>
+<% end %>

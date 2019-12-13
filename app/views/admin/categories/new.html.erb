@@ -1,0 +1,7 @@
+<h2>カテゴリーの登録</h2>
+<%= form_for @category, url:admin_categories_path do |f| %>
+	<%= f.label :カテゴリー %>
+	<%= f.text_field :name %>
+	<%= f.submit '登録' ,class: 'button btn btn-default' %>
+
+<% end %>
