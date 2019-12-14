@@ -1,8 +1,11 @@
 <div class="post_form">
 	<%= form_for(@post) do |f| %>
 
-		<%= f.fields_for :post_images do |i| %>
-			<%= i.attachment_field :image, multiple: true %>
+		<%= f.fields_for :post_images do |post_image| %>
+		<%= render 'post_image_fields', f: post_image %>
+		<div>
+			<%= link_to_add_association '画像の追加',f, :post_images %>
+		</div>
 		<% end %>
 
 

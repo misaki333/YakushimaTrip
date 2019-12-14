@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 2019_12_08_083135) do
   create_table "posts", force: :cascade do |t|
     t.integer "spot_id"
     t.integer "user_id"
-    t.integer "post_image_id"
     t.text "impression"
     t.datetime "visit_date"
     t.datetime "deleted_at"

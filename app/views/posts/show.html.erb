@@ -1,0 +1,5 @@
+<%= @post.user.name %>
+<%= @post.created_at %>
+<%= attachment_image_tag @post_post_image, :image, :fill, 230, 230, format: 'jpg', fallback: "no_image.jpg" %>
+<%= @post.visit_date %>
+<%= @post.impression %>
