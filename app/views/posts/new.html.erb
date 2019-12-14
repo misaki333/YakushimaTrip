@@ -1,0 +1,28 @@
+<div class="post_form">
+	<%= form_for(@post) do |f| %>
+
+		<%= f.fields_for :post_images do |i| %>
+			<%= i.attachment_field :image, multiple: true %>
+		<% end %>
+
+
+		<div class="date_input">
+			<%= f.text_field :visit_date, class:"form-control datetimepicker-input", data: {toggle: "datetimepicker", target: ".datetimepicker-input"}, placeholder: "YYYY/MM/DD" %>
+				<script type="text/javascript">
+					$(function () {
+						$(".datetimepicker-input").datetimepicker({
+						format:'YYYY/MM/DD'
+						});
+					});
+				</script>
+		</div>
+
+		<div class="post_impression">
+			<%= f.text_area :impression %>
+		</div>
+
+		<%= f.submit "登録", class:"btn btn-primary" %>
+
+	<% end %>
+</div>
+

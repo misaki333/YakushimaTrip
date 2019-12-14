@@ -55,7 +55,8 @@ ActiveRecord::Schema.define(version: 2019_12_08_083135) do
   end
 
   create_table "post_images", force: :cascade do |t|
-    t.string "post_image_name"
+    t.integer "post_id"
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -65,6 +66,7 @@ ActiveRecord::Schema.define(version: 2019_12_08_083135) do
     t.integer "user_id"
     t.integer "post_image_id"
     t.text "impression"
+    t.datetime "visit_date"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

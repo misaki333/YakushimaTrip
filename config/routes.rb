@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :admins
   namespace :admin do
   	resources :users, only: [:show, :edit, :update, :index, :destroy]
-    resources :spots, only: [:new, :create, :show, :edit, :update, :index, :destroy]
+    resources :spots
     resources :categories, only: [:new, :create, :edit, :update, :destroy]
   end
 
@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get 'users/:id/exit' => 'users#exit', as: 'exit'
   get 'users/:id/mypage' => 'users#mypage', as: 'mypage'
   resources :spots, only: [:index, :show]
+  resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
 end
