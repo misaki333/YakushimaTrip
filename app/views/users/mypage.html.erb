@@ -1,17 +1,26 @@
-<h2>マイページ</h2>
-
+<!-- <h2>マイページ</h2> -->
   <div class=" user_menu">
-  	<%= link_to "会員情報編集", edit_user_path(@user.id), class: 'mypage_button' %>
+    <%= link_to edit_user_path(@user.id), class: 'mypage_button' do %>
+      <i class="fas fa-user-alt" style="font-size: 60px"></i>
+    <% end %>
 
-  	<%= link_to "投稿", new_post_path, class: 'mypage_button' %>
+    <%= link_to new_post_path, class: 'mypage_button' do %>
+      <i class="fas fa-pen" style="font-size: 60px"></i>
+    <% end %>
 
-  	<%= link_to "お気に入り", edit_user_path(@user.id), class: 'mypage_button' %>
+    <%= link_to edit_user_path(@user.id), class: 'mypage_button' do %>
+      <i class="far fa-heart" style="font-size: 60px"></i>
+    <% end %>
   </div>
 
-  <div>
-    <% if @post_images.present? %>
-      <% @post_images.each do |post_image| %>
-        <%= attachment_image_tag @post_image, :image, :fill, 50, 50, format: 'jpeg', fallback: "no_image.jpg",size: "50x50" %>
-      <% end %>
+  <div  class="phots">
+    <% @posts.each do |post| %>
+      <div  class="phot">
+        <% post.post_images.each do |image| %>
+          <%= link_to post_path(post.id) do %>
+            <%= attachment_image_tag image, :image, :fill, 200, 150 %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
   </div>

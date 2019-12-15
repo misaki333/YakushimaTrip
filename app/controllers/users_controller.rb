@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
-		@posts = @user.posts
-		@post_images = Postimage.where(post_id: @post.id)
 	end
 
 	def edit
@@ -23,6 +21,7 @@ class UsersController < ApplicationController
 
 	def mypage
 		@user = User.find(params[:id])
+		@posts = @user.posts
 	end
 
 	def exit

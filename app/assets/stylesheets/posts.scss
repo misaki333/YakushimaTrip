@@ -13,3 +13,52 @@
 	display: block;
 	position: relative;
 }
+
+
+.imgPreview:hover {
+  background-color: #EDBC6C;
+  transition: 0.3s ease-out;
+  opacity: 0.9;
+}
+
+
+.imageFile {
+	width: 100%;
+	height: 200px;
+	background-position: center 30%;
+}
+
+
+/* show */
+
+.post_show {
+	background: #fafafa;
+	max-width: 60%;
+	margin: 50px auto;
+}
+
+.post_user {
+	padding-top: 20px;
+	margin-left: 10px;
+}
+
+.post_day {
+	text-align: right;
+	margin-right: 10px;
+}
+
+.post_photos {
+	text-align: center;
+	margin: 10px;
+}
+
+.post_visit_day {
+	padding-top: 20px;
+	margin-left: 10px;
+}
+
+.post_comment {
+	padding-top: 20px;
+	margin-left: 10px;
+	padding-bottom: 20px;
+}

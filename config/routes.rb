@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   get 'users/:id/mypage' => 'users#mypage', as: 'mypage'
   resources :spots, only: [:index, :show]
   resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
+  get 'posts/autocomplete_spot/:term' => 'posts#autocomplete_spot'
 end

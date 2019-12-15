@@ -1,11 +1,12 @@
 <div class="post_form">
 	<%= form_for(@post) do |f| %>
 
+
 		<%= f.fields_for :post_images do |post_image| %>
-			<%= render 'post_image_fields', f: post_image %>
-			<div>
-				<%= link_to_add_association '画像の追加',f, :post_images %>
-			</div>
+		<%= render 'post_image_fields', f: post_image %>
+		<div>
+			<%= link_to_add_association '画像の追加',f, :post_images %>
+		</div>
 		<% end %>
 
 
@@ -27,5 +28,8 @@
 		<%= f.submit "登録", class:"btn btn-primary" %>
 
 	<% end %>
+	<%= link_to "削除", post_path, method: :delete, class: 'btn btn-denger', data:
+	 { confirm: "本当に削除しますか？",
+		 cancel: "戻る",
+		 commit: "削除"}, title:"削除の確認" %>
 </div>
-

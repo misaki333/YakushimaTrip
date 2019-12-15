@@ -126,6 +126,7 @@ h3 {
 
 .user_menu {
   text-align: center;
+  margin-top: 50px;
   padding-top: 10px;
   padding-bottom: 20px;
 }
@@ -133,19 +134,28 @@ h3 {
 .mypage_button {
   display: inline-block;
   text-decoration: none;
-  background: #f16272;
-  color: #fff;
+  color: #797979;
   font-family: 'Open Sans', sans-serif;
   letter-spacing: 0.05em;
   margin-right: 10px;
   margin-left: 10px;
-  padding-right: 10px;
-  padding-left: 10px;
-  border-radius: 20px;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .mypage_button:hover {
   background: #ee3e52;
+}
+
+.phots {
+  max-width: 60%;
+  margin: 0 auto;
+  background: #fafafa;
+}
+
+.phot {
+  display: inline-block;
+  margin: 10px;
 }
 
 
