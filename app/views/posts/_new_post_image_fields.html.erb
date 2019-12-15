@@ -1,0 +1,35 @@
+<div class="nested-fields">
+  <div class="input-file updateIcon">
+    <div class="imgPreview">
+			<%= f.attachment_field :image, type: "file", class: "imageFile", accept: "image/*", fallback: "no_image.jpg" %>
+		</div>
+		<%= link_to_remove_association "削除", f %>
+	</div>
+</div>
+
+
+
+
+
+
+
+<script data-turbolinks-eval="false">
+	var counter = 0;
+	$(document).ready(function() {
+		$('.formImage')
+		.on('cocoon:after-insert', function(e, insertedItem) {
+			$(insertedItem).find('.imageFile').attr('id', 'imageFile_' + counter++);
+		})
+	})
+  $(".imageFile").change(function() {
+  	var id = $(this).attr('id');
+    var file = $(this).prop("files")[0];
+    var fr = new FileReader();
+    $("#" + id).css("background-image", "none");
+    fr.onload = function() {
+      $("#" + id).css("background-image", "url(" + fr.result + ")");
+    };
+    fr.readAsDataURL(file);
+    $(".imgPreview img").css("opacity", 0);
+  });
+</script>
