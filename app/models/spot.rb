@@ -5,4 +5,9 @@ class Spot < ApplicationRecord
 	belongs_to :category
 
 	attachment :image
+
+	scope :autocomplete, ->(term) {
+		where("name LIKE ?" , "#{term}%").order(:name)
+	}
+
 end

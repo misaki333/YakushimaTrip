@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
 	def mypage
 		@user = User.find(params[:id])
+		@posts = @user.posts
 	end
 
 	def exit
