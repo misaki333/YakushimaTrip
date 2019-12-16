@@ -8,14 +8,24 @@
 		<%= link_to "編集", edit_post_path(@post.id), class:"glyphicon glyphicon-pencil" %>
 	</div>
 
-	<div class="post_photos">
-		<% @post_images.each do |image| %>
-			<%= attachment_image_tag image, :image, :fill, 230, 180 %>
-		<% end %>
-	</div>
+	<% @post_images.each_slice(2) do |image1, image2| %>
+		<div class="post_photos">
+			<% if image1 != nil %>
+				<%= attachment_image_tag image1, :image, :fill, 300, 225 %>
+			<% end %>
+
+			<% if image2 != nil %>
+				<%= attachment_image_tag image2, :image, :fill, 300, 225 %>
+			<% end %>
+		</div>
+	<% end %>
+
+	<div>
+		<label class="spot_name">観光地名称</label>
+		<%= @post.spot.name %>
 
 	<div class="post_visit_day">
-		<%= "行った日" %>
+		<label class="visit_date">訪問日</label>
 		<%= @post.visit_date.strftime("%Y年%m月%d日") %>
 	</div>
 

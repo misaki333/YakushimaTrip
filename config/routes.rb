@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
   	resources :users, only: [:show, :edit, :update, :index, :destroy]
     resources :spots
+    resources :posts, only: [:show, :edit, :update, :index, :destroy]
     resources :categories, only: [:new, :create, :edit, :update, :destroy]
   end
 
@@ -17,3 +18,5 @@ Rails.application.routes.draw do
   resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
   get 'posts/autocomplete_spot/:term' => 'posts#autocomplete_spot'
 end
+
+

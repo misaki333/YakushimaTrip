@@ -10,3 +10,4 @@ $ ->
     autoFocus: true,
     delay: 300,
     minLength: 2
+

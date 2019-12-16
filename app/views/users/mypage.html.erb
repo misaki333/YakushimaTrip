@@ -13,14 +13,14 @@
     <% end %>
   </div>
 
-  <div  class="phots">
+  <div  class="photos">
     <% @posts.each do |post| %>
-      <div  class="phot">
-        <% post.post_images.each do |image| %>
+      <% post.post_images.each do |image| %>
+        <div  class="photo">
           <%= link_to post_path(post.id) do %>
             <%= attachment_image_tag image, :image, :fill, 200, 150 %>
           <% end %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
