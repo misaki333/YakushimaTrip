@@ -1,17 +1,62 @@
-<div class="spot_name"><%= @spot.name %></div>
-<div class="spot_category">
-	<div class="category_name"><%= @spot.category.name %></div>
+<div class="spot_show">
+
+	<div class="spot_show_second clearfix">
+
+		<div class="spot_images">
+	    <% @posts.each do |post| %>
+	      <% post.post_images.each_slice(2) do |image1, image2| %>
+	        <div  class="spot_image">
+	        	<% if image1 != nil %>
+		          <%= link_to post_path(post.id) do %>
+		            <%= attachment_image_tag image1, :image, :fill, 200, 150 %>
+		          <% end %>
+		        <% end %>
+	        	<% if image2 != nil %>
+		          <%= link_to post_path(post.id) do %>
+		            <%= attachment_image_tag image2, :image, :fill, 200, 150 %>
+		          <% end %>
+		        <% end %>
+	        </div>
+	      <% end %>
+	     <% end %>
+		</div>
+
+
+
+		<div class="spot_show_text">
+			<div class="spot_name"><%= @spot.name %></div>
+			<div class="spot_category">
+				<div class="category_name"><%= @spot.category.name %></div>
+			</div>
+			<div class="address">
+				<label>住所</label>
+				<%= @spot.address %>
+			</div>
+			<div class="content"><%= @spot.content %></div>
+
+
+
+
+			<% if @posts.any? %>
+				<% @posts.each do |post| %>
+					<div class="spot_post_show">
+						<div class="spot_post_date">
+							<label>投稿日</label>
+								<%= post.created_at.strftime("%Y/%m/%d") %>
+						</div>
+						<div>
+							<label>訪問日</label>
+								<%= post.visit_date.strftime("%Y/%m/%d") %>
+						</div>
+						<div class="spot_comment">
+							<%= post.impression %>
+						</div>
+					</div>
+				<% end %>
+			<% else %>
+				<p>投稿はまだありません。</p>
+			<% end %>
+		</div>
+	</div>
+
 </div>
-<div class="address">住所：<%= @spot.address %></div>
-<div class="content"><%= @spot.content %></div>
-
-
-
-
-<% if @posts.any? %>
-<% @posts.each do |post| %>
-<%= post.impression %>
-<% else %>
-<p>投稿はまだありません。</p>
-<% end %>
-<% end %>
