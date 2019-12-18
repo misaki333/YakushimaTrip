@@ -25,10 +25,21 @@
   clear: both;
 }
 
+#map {
+	width: 40%;
+	height: 400px;
+	margin-top: 3em;
+	margin-left: 3em;
+}
+
 .spot_show {
 	width: 80%;
 	margin: 3em auto;
 	background: #fafafa;
+}
+
+.spot_show_first {
+	width: 100%;
 }
 
 .spot_show_second {
