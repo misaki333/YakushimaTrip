@@ -1,5 +1,16 @@
 <div class="spot_show">
 
+
+
+	<div class="spot_show_first clearfix">
+		<div id="map"></div>
+	</div>
+
+
+
+
+
+
 	<div class="spot_show_second clearfix">
 
 		<div class="spot_images">
@@ -60,3 +71,29 @@
 	</div>
 
 </div>
+
+
+
+<script>
+function initMap(){
+  let map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: <%= @spot.latitude %>, lng: <%= @spot.longitude %>},
+  zoom: 15
+  });
+  let marker = new google.maps.Marker({
+     position: {lat: <%= @spot.latitude %>, lng: <%= @spot.longitude %>},
+     map: map
+  });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_API_KEY'] %>&callback=initMap" async defer></script>
+
+
+
+
+
+
+
+
+

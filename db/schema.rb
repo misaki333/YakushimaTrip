@@ -73,10 +73,11 @@ ActiveRecord::Schema.define(version: 2019_12_08_083135) do
 
   create_table "spots", force: :cascade do |t|
     t.integer "category_id"
-    t.integer "post_id"
     t.string "name"
     t.string "image_id"
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.text "content"
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
