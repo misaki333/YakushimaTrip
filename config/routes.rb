@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
   resources :likes, only: [:index]
+  delete 'likes/destroy_all' => 'likes#destroy_all', as: 'destroy_all'
   resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
   get 'posts/autocomplete_spot/:term' => 'posts#autocomplete_spot'
 end
