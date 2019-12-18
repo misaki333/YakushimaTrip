@@ -14,7 +14,10 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :show]
   get 'users/:id/exit' => 'users#exit', as: 'exit'
   get 'users/:id/mypage' => 'users#mypage', as: 'mypage'
-  resources :spots, only: [:index, :show]
+  resources :spots, only: [:index, :show] do
+    resource :likes, only: [:create, :destroy]
+  end
+  resources :likes, only: [:index]
   resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
   get 'posts/autocomplete_spot/:term' => 'posts#autocomplete_spot'
 end
