@@ -36,6 +36,9 @@
 
 		<div class="spot_show_text">
 			<div class="spot_name"><%= @spot.name %></div>
+          <div id="likes_buttons_<%= @spot.id %>">
+             <%= render partial: 'likes/like', locals: { spot: @spot} %>
+          </div>
 			<div class="spot_category">
 				<div class="category_name"><%= @spot.category.name %></div>
 			</div>
@@ -88,6 +91,7 @@ function initMap(){
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GMAP_API_KEY'] %>&callback=initMap" async defer></script>
+
 
 
 

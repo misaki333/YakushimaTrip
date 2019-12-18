@@ -14,4 +14,9 @@ class Spot < ApplicationRecord
 	after_validation :geocode
 	# モデル登録時と住所(address)変更時にgeocoderにより、緯度・経度のデータが登録・更新される。
 
+	has_many :likes, dependent: :destroy
+	def liked_by?(user)
+		likes.where(user_id: user.id).exists?
+	end
+
 end
