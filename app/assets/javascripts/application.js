@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery-ui/widgets/autocomplete
-//= require jquery_ujs
 //= require rails-ujs
 //= require gmaps/google
 //= require activestorage

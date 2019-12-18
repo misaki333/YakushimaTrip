@@ -11,5 +11,18 @@ class LikesController < ApplicationController
   end
 
   def index
+    @user = current_user
+    @likes = @user.likes
+  end
+
+  def destroy_all
+    @likes = Like.where(id: params[:likes])
+    @likes.destroy_all
+    redirect_to likes_path
   end
 end
+
+
+
+       # @favorites = Favorite.where(user_id: current_user.id)
+
