@@ -19,10 +19,10 @@ class Admin::SpotsController < ApplicationController
 	end
 
 	def update
-		@category = Category.find(params[:spot][:category_id])
+		@category = Category.find_by(name: params[:spot][:category_id])
 		@spot = Spot.find(params[:id])
 		@spot.category_id = @category.id
-		if @spot.updata(spot_params)
+		if @spot.update(spot_params)
 			redirect_to admin_spot_path(params[:id])
 		else
 			render 'edit'

@@ -1,10 +1,36 @@
 /* index */
 
+.top-page {
+	width: 80%;
+	margin: 0 auto;
+}
+
 .main-visual {
 	width: 100%;
-	height: 100px;
+	height: 300px;
+	margin: 3em auto;
 	background-color: black;
-	margin-bottom: 50px;
+	opacity: 0.5;
+}
+
+.spot_index {
+	width: 100%;
+	margin: 3em auto;
+}
+
+.index_first {
+	font-weight: bolder;
+}
+
+.index_second {
+	font-weight: bolder;
+	margin-top: 3em;
+}
+
+.index_spot_name {
+	font-weight: bolder;
+	font-size: 1.25em;
+	margin-top: 1em;
 }
 
 .top-page table {
@@ -13,6 +39,7 @@
 
 .top-page table td {
 	text-align: center;
+	padding: 1em;
 }
 
 
@@ -67,7 +94,7 @@
 }
 
 .spot_name {
-	font-weight: bolder;
+	font-weight: bold;
 	font-size: 2em;
 }
 
@@ -80,8 +107,8 @@
 	margin: 1em 0;
 	padding: 0.3em;
 	font-weight: bold;
-	border: solid 2px #87CEFA;
-	background-color: #87CEFA;
+	border: solid 1px #EEFF41;
+	background-color: #EEFF41;
 	border-radius: 5px;
 }
 

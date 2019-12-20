@@ -1,6 +1,6 @@
 <h2>観光地の編集</h2>
 
-<%= form_for (@spot), url: admin_spots_path do |f| %>
+<%= form_for (@spot), url: admin_spot_path do |f| %>
 	<div>画像</div>
 	<%= attachment_image_tag @item, :image_id, :fill, 50, 50, format: 'jpg', fallback: "no_image.jpg" %>
 	<%= f.attachment_field :image %>
