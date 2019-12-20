@@ -1,44 +1,57 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-9 col-xs-offset-1">
-      <div class="main-visual"></div>
-    </div>
-    <div class="col-xs-7 col-xs-offset-5 top-page">
+<div class="top-page">
+  <div class="main-visual"></div>
+  <div class="spot_index">
       <table>
-        <span>おすすめ</span>
+        <div class="index_first">おすすめ</div>
 
         <% @random.each_slice(4) do |spot1, spot2, spot3, spot4| %>
 
           <tr>
             <td>
               <% if spot1 != nil%>
-                <%= attachment_image_tag spot1, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
-                <%= spot1.name %><br>
-                <%= spot1.category.name %>
+                <%= attachment_image_tag spot1, :image, :fill, 200, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+                <div class="index_spot_name">
+                  <%= spot1.name %>
+                </div>
+                <div class="spot_category">
+                  <div class="category_name"><%= spot1.category.name %></div>
+                </div>
               <% end %>
             </td>
 
             <td>
               <% if spot2 != nil%>
-                <%= attachment_image_tag spot2, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
-                <%= spot2.name %><br>
-                <%= spot2.category.name %>
+                <%= attachment_image_tag spot2, :image, :fill, 200, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+                <div class="index_spot_name">
+                  <%= spot2.name %>
+                </div>
+                <div class="spot_category">
+                  <div class="category_name"><%= spot2.category.name %></div>
+                </div>
               <% end %>
             </td>
 
             <td>
               <% if spot3 != nil%>
-                <%= attachment_image_tag spot3, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
-                <%= spot3.name %><br>
-                <%= spot3.category.name %>
+                <%= attachment_image_tag spot3, :image, :fill, 200, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+                <div class="index_spot_name">
+                  <%= spot3.name %>
+                </div>
+                <div class="spot_category">
+                  <div class="category_name"><%= spot3.category.name %></div>
+                </div>
               <% end %>
             </td>
 
             <td>
               <% if spot4 != nil%>
-                <%= attachment_image_tag spot4, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
-                <%= spot4.name %><br>
-                <%= spot4.category.name %>
+                <%= attachment_image_tag spot4, :image, :fill, 200, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+                <div class="index_spot_name">
+                  <%= spot4.name %>
+                </div>
+                <div class="spot_category">
+                  <div class="category_name"><%= spot4.category.name %></div>
+                </div>
               <% end %>
             </td>
           </tr>
@@ -47,46 +60,61 @@
       </table>
 
       <table>
-        <span>一覧</span>
+        <div class="index_second">一覧</div>
 
         <% @spots.each_slice(4) do |spot1, spot2, spot3, spot4| %>
 
           <tr>
             <td>
               <% if spot1 != nil%>
-                <%= attachment_image_tag spot1, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
-                <%= spot1.name %><br>
-                <%= spot1.category.name %>
+                <%= attachment_image_tag spot1, :image, :fill, 200, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+                <div class="index_spot_name">
+                  <%= spot1.name %>
+                </div>
+                <div class="spot_category">
+                  <div class="category_name"><%= spot1.category.name %></div>
+                </div>
               <% end %>
             </td>
 
             <td>
               <% if spot2 != nil%>
-                <%= attachment_image_tag spot2, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
-                <%= spot2.name %><br>
-                <%= spot2.category.name %>
+                <%= attachment_image_tag spot2, :image, :fill, 200, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+                <div class="index_spot_name">
+                  <%= spot2.name %>
+                </div>
+                <div class="spot_category">
+                  <div class="category_name"><%= spot2.category.name %></div>
+                </div>
               <% end %>
             </td>
 
             <td>
               <% if spot3 != nil%>
-                <%= attachment_image_tag spot3, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
-                <%= spot3.name %><br>
-                <%= spot3.category.name %>
+                <%= attachment_image_tag spot3, :image, :fill, 200, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+                <div class="index_spot_name">
+                  <%= spot3.name %>
+                </div>
+                <div class="spot_category">
+                  <div class="category_name"><%= spot3.category.name %></div>
+                </div>
               <% end %>
             </td>
 
             <td>
               <% if spot4 != nil%>
-                <%= attachment_image_tag spot4, :image, :fill, 150, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
-                <%= spot4.name %><br>
-                <%= spot4.category.name %>
+                <%= attachment_image_tag spot4, :image, :fill, 200, 150, format: 'jpg', fallback: "no_image.jpg" %><br>
+                <div class="index_spot_name">
+                  <%= spot4.name %>
+                </div>
+                <div class="spot_category">
+                  <div class="category_name"><%= spot4.category.name %></div>
+                </div>
               <% end %>
             </td>
           </tr>
 
         <% end %>
       </table>
-    </div>
   </div>
 </div>
