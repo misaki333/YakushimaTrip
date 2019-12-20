@@ -1,12 +1,18 @@
 class PlansController < ApplicationController
 
+  def spots_select
+    if request.xhr?
+      render partial: 'spots', locals: {category_id: params[:category_id]}
+    end
+  end
+
   def create
     @plan = Plan.new(plan_params)
     @user = current_user
     @plans = @user.plans
     @plan = @user.plans.create(plan_params)
     if @plan.save
-      redirect_to edit_plans_path(@plan.id)
+      redirect_to edit_plan_path(@plan.id)
     else
       render action: :index
     end

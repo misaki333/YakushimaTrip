@@ -4,7 +4,6 @@ class Spot < ApplicationRecord
 
 	has_many :posts
 	belongs_to :category
-	belongs_to :destination
 
 	scope :autocomplete, ->(term) {
 		where("name LIKE ?" , "#{term}%").order(:name)

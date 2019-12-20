@@ -4,4 +4,5 @@ class Plan < ApplicationRecord
   belongs_to :user
   has_many :destinations, inverse_of: :plan
   accepts_nested_attributes_for :destinations, allow_destroy: true
+  belongs_to :category
 end
