@@ -1,0 +1,64 @@
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.plans_index {
+  width: 80%;
+  margin: 3em auto;
+  background: #fafafa;
+}
+
+.plan_new {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 3em;
+  padding-bottom: 2em;
+}
+
+.plan_label {
+  float: left;
+  width: 20%;
+  margin: 0.5em;
+}
+
+.plan_name {
+  float: left;
+  width: 70%;
+}
+
+.plan_date_label {
+  float: left;
+  width: 20%;
+  margin: 0.5em;
+}
+
+.plan_date {
+  float: left;
+  width: 70%;
+}
+
+.start_date {
+  float: left;
+  display: block;
+  position: relative;
+}
+
+.plan_date_text {
+  float: left;
+  padding: 0.5em 3em;
+}
+
+.end_date {
+  float: right;
+  display: block;
+  position: relative;
+}
+
+.plan_submit {
+  text-align: center;
+  padding-bottom: 3em;
+}
+
+
