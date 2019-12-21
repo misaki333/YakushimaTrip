@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ItinerariesControllerTest < ActionDispatch::IntegrationTest
+class PlanTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

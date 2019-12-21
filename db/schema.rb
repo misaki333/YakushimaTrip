@@ -32,16 +32,9 @@ ActiveRecord::Schema.define(version: 2019_12_08_083135) do
 
   create_table "destinations", force: :cascade do |t|
     t.integer "spot_id"
-    t.integer "itinerary_id"
-    t.datetime "time"
-    t.string "plan"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "itineraries", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "name"
+    t.integer "plan_id"
+    t.time "time"
+    t.string "to_do"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +43,16 @@ ActiveRecord::Schema.define(version: 2019_12_08_083135) do
     t.integer "user_id"
     t.integer "spot_id"
     t.integer "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "name"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
