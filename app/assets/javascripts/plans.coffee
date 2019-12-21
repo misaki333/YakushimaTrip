@@ -1,7 +1,7 @@
-$(document).on 'change', '#destination_category', ->
+$(document).on 'change', '#plan_destinations_attributes_0_category', ->
   $.ajax(
     type: 'GET'
-    url: '/plans/spots_select'
+    url: '/destinations/spots_select'
     data: {
       category_id: $(this).val()
     }

@@ -33,9 +33,15 @@ class PlansController < ApplicationController
   def update
     @plan = Plan.find(params[:id])
     @destination = Destination.where(plan_id: @plan.id)
-    @spot = Spot.find_by(name: params[:spot_id])
-    @destinatin.spot_id = @spot.id
-    if plan.update(plan_params)
+    @spot = Spot.find(params[:destination][:spot])
+
+    if @destination.length == 0
+      @destination = Destination.new
+    else
+      @destinatin.spot_id = @spot.id
+    end
+
+    if @plan.update(plan_params)
       redirect_to plans_path
     else
       render "edit"
@@ -55,6 +61,10 @@ class PlansController < ApplicationController
 
   private
   def plan_params
+    params.require(:plan).permit(:name, :start_date, :end_date)
+  end
+
+  def nest_plan_params
     params.require(:plan).permit(:name, :start_date, :end_date,
       destinations_attributes: [:id, :time, :to_do, :_destroy])
   end
