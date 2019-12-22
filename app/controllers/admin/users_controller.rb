@@ -1,14 +1,26 @@
 class Admin::UsersController < ApplicationController
 	def index
-		@user = User.all
+    if admin_signed_in?
+		  @user = User.all
+    else
+      redirect_to root_path
+    end
 	end
 
 	def show
-		@user = User.find(params[:id])
+    if admin_signed_in?
+		  @user = User.find(params[:id])
+    else
+      redirect_to root_path
+    end
 	end
 
 	def edit
-		@user = User.find(params[:id])
+    if admin_signed_in?
+		  @user = User.find(params[:id])
+    else
+      redirect_to root_path
+    end
 	end
 
 	def update

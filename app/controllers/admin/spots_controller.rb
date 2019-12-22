@@ -1,6 +1,10 @@
 class Admin::SpotsController < ApplicationController
 	def new
-		@spot = Spot.new
+		if admin_signed_in?
+			@spot = Spot.new
+		else
+			redirect_to root_path
+		end
 	end
 
 	def create
@@ -15,7 +19,11 @@ class Admin::SpotsController < ApplicationController
 	end
 
 	def edit
-		@spot = Spot.find(params[:id])
+		if admin_signed_in?
+			@spot = Spot.find(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 	def update
@@ -36,11 +44,19 @@ class Admin::SpotsController < ApplicationController
 	end
 
 	def index
-		@spots = Spot.all
+		if admin_signed_in?
+			@spots = Spot.all
+		else
+			redirect_to root_path
+		end
 	end
 
 	def show
-		@spot = Spot.find(params[:id])
+		if admin_signed_in?
+			@spot = Spot.find(params[:id])
+		else
+			redirect_to root_path
+		end
 	end
 
 	private
