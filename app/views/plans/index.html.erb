@@ -8,25 +8,26 @@
       </div>
 
       <div class="form-group clearfix">
-        <div class="plan_date_label"><%= f.label :日程 %></div>
+        <div class="plan_date_label"><%= f.label :start_date, "日程" %></div>
         <div class="plan_date">
           <div class="start_date">
-            <%= f.text_field :start_date, class:"form-control datetimepicker-input", data: {toggle: "datetimepicker", target: ".datetimepicker-input"}, placeholder: "年/月/日" %>
+            <%= f.text_field :start_date, class:"form-control datetimepicker-input",
+            data: {toggle: "datetimepicker", target: ".datetimepicker-input"}, placeholder: "年/月/日" %>
           </div>
           <div class="plan_date_text">
             〜
           </div>
           <div class="end_date">
-            <%= f.text_field :end_date, class:"form-control datetimepicker-input", data: {toggle: "datetimepicker", target: ".datetimepicker-input"}, placeholder: "年/月/日" %>
+            <%= f.text_field :end_date, class:"form-control datetimepicker-input",
+            data: {toggle: "datetimepicker", target: ".datetimepicker-input"}, placeholder: "年/月/日" %>
           </div>
-            <script type="text/javascript">
-              $(function () {
-                $(".datetimepicker-input").datetimepicker({
-                format:'YYYY/MM/DD'
-                });
+          <script type="text/javascript">
+            $(function () {
+              $(".datetimepicker-input").datetimepicker({
+              format:'YYYY/MM/DD'
               });
-            </script>
-          </div>
+            });
+          </script>
         </div>
       </div>
 
@@ -40,11 +41,11 @@
   <div class="user_plan_index">
     <% if @plans.any? %>
       <% @plans.each do |plan| %>
-        <div class="user_plans">
+        <div class="user_plans clearfix">
           <div class="user_plan_photo">
           </div>
 
-          <div class="user_plan_name">
+          <div class="user_plan_name clearfix">
             <%= plan.name %>
           </div>
 
@@ -52,22 +53,24 @@
             <%= plan.start_date %>
           </div>
 
+          <div class="user_plan_text">
+            〜
+          </div>
+
           <div class="user_plan_end">
             <%= plan.end_date %>
           </div>
 
           <div class="user_plan_edit">
-            <%= link_to "編集", edit_plan_path(plan.id) %>
-          </div>
-
-          <div class="user_plan_delete">
-            <%= link_to "削除", plan_path(plan.id), method: :delete, class: 'btn btn-denger', data:
+            <%= link_to "詳細", edit_plan_path(plan.id) %>
+              |
+            <%= link_to "削除", plan_path(plan.id), method: :delete, data:
              { confirm: "本当に削除しますか？",
                cancel: "戻る",
                commit: "削除"}, title:"削除の確認" %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

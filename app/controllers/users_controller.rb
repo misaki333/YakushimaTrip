@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 	end
 
 	def exit
-		@user = User.find(parmas[:id])
+		@user = User.find(params[:id])
 	end
 
 	private

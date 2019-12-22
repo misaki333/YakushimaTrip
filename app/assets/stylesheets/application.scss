@@ -24,22 +24,40 @@
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
 
+@font-face {
+  font-family: 'komadori';
+  src: font-url('komadori-mini.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 header {
+  display:block;
 	background-color: #00897B;
 	width: 100%;
 	margin: 0;
 }
 
-.head_menu  a {
-  color: #2b2b2b;
+.navbar-left {
+  float: left !important;
 }
 
-li {
+.navbar-left .header-title {
+  font-family: 'komadori';
+  color: #EEFF41;
+  font-size: 30px;
+}
+
+.navbar-right a {
+  color: #EEFF41;
+}
+
+.navbar-right li {
 	display: inline-block;
 	list-style: none;
 	float: right;
 	margin-right: 10px;
-	margin-top: 0;
+  margin-top: 10px;
 }
 
 /* body */
@@ -47,4 +65,16 @@ body {
   background: #e9e9e9;
   color: #5e5e5e;
   font: 'Open Sans', sans-serif;
+}
+
+#pageTop {
+  text-align: center;
+  border: solid 1px;
+  margin-top:80px;
+}
+
+#pageTop a {
+  display: block;
+  padding: 0.5em 1em;
+  color: #5E5E5E
 }

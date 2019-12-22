@@ -44,7 +44,7 @@ form {
 }
 
 .user_actions .button {
-  background: #f16272;
+  background: #00897B;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -58,7 +58,7 @@ form {
 }
 
 .button:hover {
-  background: #ee3e52;
+  background: #024a1c;
 }
 
 .user_links {
@@ -88,7 +88,7 @@ form {
   display: block;
   text-decoration: none;
   line-height: 50px;
-  background: #f16272;
+  background: #00897B;
   border: none;
   color: #fff;
   cursor: pointer;
@@ -100,14 +100,14 @@ form {
 }
 
 .user_button:hover {
-  background: #ee3e52;
+  background: #024a1c;
 }
 
 /* exitのみで使用 */
 
-h3 {
+.exit_message {
+  margin: 10em auto;
   text-align: center;
-  padding: 1em 0;
 }
 
 .user_exit {
@@ -144,7 +144,7 @@ h3 {
 }
 
 .mypage_button:hover {
-  background: #ee3e52;
+  background: #FFFF99;
 }
 
 .photos {

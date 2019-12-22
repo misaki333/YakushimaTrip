@@ -21,11 +21,8 @@ Rails.application.routes.draw do
   delete 'likes/destroy_all' => 'likes#destroy_all', as: 'destroy_all'
   resources :posts, only: [:new, :create, :show, :edit, :update, :destroy]
   get 'posts/autocomplete_spot/:term' => 'posts#autocomplete_spot'
-  resources :plans, only: [:create, :index, :edit, :update, :destroy] do
-    collection do
-      get :spots_select
-    end
-  end
+  resources :plans, only: [:create, :index, :edit, :update, :destroy]
+  get 'plans/new/:id' => 'plans#new', as:'new_plan'
   get 'plans/autocomplete_spot/:term' => 'plans#autocomplete_spot'
   resources :destinations, only: [:new, :create, :edit, :update, :destroy] do
     collection do

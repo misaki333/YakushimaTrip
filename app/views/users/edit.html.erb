@@ -13,11 +13,6 @@
 			<%= f.email_field :email, autocomplete: "email" %>
 		</div>
 
-		<div class="user_field">
-			<%= f.label :パスワード %><br>
-			<%= f.password_field :password, autocomplete: "current-password" %>
-		</div>
-
 		<div class="user_actions">
 			<%= f.submit "保存する", class: 'button' %>
 		</div>
@@ -26,4 +21,8 @@
 
 <div class="user_links">
 	 <%= link_to "マイページ", mypage_path %>
+</div>
+
+<div class="user_links">
+	 <%= link_to "退会する", exit_path(@user.id) %>
 </div>
