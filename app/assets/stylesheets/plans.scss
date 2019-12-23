@@ -9,7 +9,6 @@
 .plans_index {
   width: 80%;
   margin: 3em auto;
-  background: #fafafa;
 }
 
 .plan_new {
@@ -17,6 +16,7 @@
   margin: 0 auto;
   padding-top: 3em;
   padding-bottom: 2em;
+  background: #fafafa;
 }
 
 .plan_label {
@@ -60,9 +60,47 @@
 
 .plan_submit {
   text-align: center;
-  padding-bottom: 3em;
+  padding-top: 2em;
+  padding-bottom: 1em;
 }
 
+.user_plan_index {
+  width: 60%;
+  margin: 6em auto;
+  padding: 0 1.5em;
+}
+
+.user_plans {
+  margin-top: 2em;
+}
+
+.user_plan_name {
+  width: 100%;
+  float: left;
+  display: block;
+}
+
+.user_plan_start {
+  float: left;
+  display: block;
+  overflow:  hidden;
+}
+
+.user_plan_text {
+  float: left;
+  display: block;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.user_plan_end {
+  float: left;
+  display: block;
+}
+
+.user_plan_edit {
+  text-align: right;
+}
 
 /* show */
 
@@ -134,7 +172,7 @@
 
 .destination_spot {
   float: right;
-  margin-left: 0.5em;
+  margin-left: 0;
 }
 
 .plan_content {

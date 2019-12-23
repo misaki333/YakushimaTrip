@@ -7,3 +7,4 @@ $(document).on 'change', '#plan_destinations_attributes_0_category', ->
     }
   ).done (data) ->
     $('#destination_spot').html(data)
+

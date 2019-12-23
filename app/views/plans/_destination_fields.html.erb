@@ -7,7 +7,7 @@
     <div class="destination_select">
       <div class="destination_category">
         <%= f.label :category, "カテゴリー" %>
-        <%= f.collection_select :category, Category.all, :id, :name %>
+        <%= f.collection_select :category, Category.all, :id, :name, id: 'destination_category'%>
       </div>
 
       <div class="destination_spot">

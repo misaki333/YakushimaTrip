@@ -1,15 +1,12 @@
 <div class="spot_show">
 
-
-
 	<div class="spot_show_first clearfix">
 		<div id="map"></div>
+
+		<div class="spot_show_image">
+			<%= attachment_image_tag @spot, :image, :fill, 530, 400 %>
+		</div>
 	</div>
-
-
-
-
-
 
 	<div class="spot_show_second clearfix">
 
@@ -32,8 +29,6 @@
 	     <% end %>
 		</div>
 
-
-
 		<div class="spot_show_text">
 			<div class="spot_name"><%= @spot.name %></div>
           <div id="likes_buttons_<%= @spot.id %>">
@@ -47,9 +42,6 @@
 				<%= @spot.address %>
 			</div>
 			<div class="content"><%= @spot.content %></div>
-
-
-
 
 			<% if @posts.any? %>
 				<% @posts.each do |post| %>
@@ -68,7 +60,7 @@
 					</div>
 				<% end %>
 			<% else %>
-				<p>投稿はまだありません。</p>
+				<div class="spot_comment_none">投稿はまだありません。</div>
 			<% end %>
 		</div>
 	</div>

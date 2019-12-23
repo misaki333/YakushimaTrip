@@ -6,13 +6,19 @@ class PlansController < ApplicationController
     end
   end
 
+  def new
+    @plan = Plan.find(params[:id])
+    @destination = Destination.new
+    @spot = Spot.new
+  end
+
   def create
     @plan = Plan.new(plan_params)
     @user = current_user
     @plans = @user.plans
     @plan = @user.plans.create(plan_params)
     if @plan.save
-      redirect_to edit_plan_path(@plan.id)
+      redirect_to new_plan_path(@plan.id)
     else
       render action: :index
     end
@@ -26,8 +32,8 @@ class PlansController < ApplicationController
 
   def edit
     @plan = Plan.find(params[:id])
-    @destination = @plan.destinations.build
-    @spot = Spot.where(destination_id: @destination.id)
+    @destination = Destination.where(plan_id: @plan.id)
+    @spots = Spot.where(destination_id: @destination.id)
   end
 
   def update
@@ -48,15 +54,10 @@ class PlansController < ApplicationController
     end
   end
 
-
-  def autocomplete_spot
-    spot_suggestions = Spot.autocomplete(params[:term]).pluck(:name)
-    respond_to do |format|
-      format.html
-      format.json{
-        render json: spot_suggestions
-      }
-    end
+  def destroy
+    @plan = Plan.find(params[:id])
+    @plan.destroy
+    redirect_to plan_path
   end
 
   private
