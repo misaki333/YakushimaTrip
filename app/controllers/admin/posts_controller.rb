@@ -11,13 +11,18 @@ class Admin::PostsController < ApplicationController
 	end
 
 	def show
-		@post = Post.find(params[:id])
-		@post_images = PostImage.where(post_id: @post.id)
+		if admin_signed_in?
+			@post = Post.find(params[:id])
+			@post_images = PostImage.where(post_id: @post.id)
 	end
 
 	def edit
-		@post = Post.find(params[:id])
-		@post_image = PostImage.where(post_id: @post.id)
+		if admin_signed_in?
+			@post = Post.find(params[:id])
+			@post_image = PostImage.where(post_id: @post.id)
+		else
+			redirect_to root_path
+		end
 	end
 
 	def update
@@ -32,7 +37,11 @@ class Admin::PostsController < ApplicationController
 	end
 
 	def index
-		@posts = Post.all
+		if admin_signed_in?
+			@posts = Post.all
+		else
+			redirect_to root_path
+		end
 	end
 
 	def destroy

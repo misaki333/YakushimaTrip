@@ -18,4 +18,7 @@ class Spot < ApplicationRecord
 		likes.where(user_id: user.id).exists?
 	end
 
+	validates :name, presence: true
+	validates :address, presence: true
+	validates :content, presence: true
 end
