@@ -10,6 +10,7 @@
 
 	<div class="spot_show_second clearfix">
 
+
 		<div class="spot_images">
 	    <% @posts.each do |post| %>
 	      <% post.post_images.each_slice(2) do |image1, image2| %>
@@ -30,6 +31,9 @@
 		</div>
 
 		<div class="spot_show_text">
+
+		<% if user_signed_in? %>
+
 			<div class="spot_name"><%= @spot.name %></div>
           <div id="likes_buttons_<%= @spot.id %>">
              <%= render partial: 'likes/like', locals: { spot: @spot} %>
@@ -42,6 +46,20 @@
 				<%= @spot.address %>
 			</div>
 			<div class="content"><%= @spot.content %></div>
+
+		<% else %>
+
+			<div class="spot_name"><%= @spot.name %></div>
+			<div class="spot_category">
+				<div class="category_name"><%= @spot.category.name %></div>
+			</div>
+			<div class="address">
+				<label>住所</label>
+				<%= @spot.address %>
+			</div>
+			<div class="content"><%= @spot.content %></div>
+
+		<% end %>
 
 			<% if @posts.any? %>
 				<% @posts.each do |post| %>
