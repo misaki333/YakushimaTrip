@@ -104,6 +104,7 @@
 }
 
 .spot_name {
+	padding-top: 0.5em;
 	font-weight: bold;
 	font-size: 2em;
 }
@@ -111,6 +112,19 @@
 .heart li{
 	text-align: right;
 	list-style: none;
+	padding-right: 0.5em;
+}
+
+.post_new_button {
+	float: right;
+	border: solid 1px #00897B;
+	background-color: #00897B;
+	border-radius: 5px;
+}
+
+.post_new_button a {
+	color: #EEFF41;
+	padding: 0.3em;
 }
 
 .spot_category {

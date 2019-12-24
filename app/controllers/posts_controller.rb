@@ -1,7 +1,11 @@
 class PostsController < ApplicationController
+	before_action :authenticate_user!
+
 	def new
+		@spot = Spot.find(params[:id])
 		@post = Post.new
 		@post_image = @post.post_images.build
+		@post.spot_id = @spot.id
 	end
 
 	def autocomplete_spot
@@ -15,9 +19,8 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@spot = Spot.find_by(name: params[:post][:spot_id])
+		@spot = Spot.find(params[:post][:spot_id])
 		@post = Post.new(post_params)
-		@post.spot_id = @spot.id
 		@post.user_id = current_user.id
 		if @post.save
   		redirect_to root_path
@@ -53,7 +56,7 @@ class PostsController < ApplicationController
 
 	private
 	def post_params
-		params.require(:post).permit(:impression, :visit_date,
+		params.require(:post).permit(:impression, :visit_date, :spot_id,
 			post_images_attributes: [:id, :image, :_destroy])
 	end
 end
