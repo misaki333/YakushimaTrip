@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   # ユーザ
   root to: 'spots#index'
+  get '/about' => 'spots#about'
   devise_for :users
   resources :users, only: [:edit, :update, :show]
   get 'users/:id/exit' => 'users#exit', as: 'exit'
