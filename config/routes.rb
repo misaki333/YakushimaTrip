@@ -19,8 +19,13 @@ Rails.application.routes.draw do
   end
   resources :likes, only: [:index]
   delete 'likes/destroy_all' => 'likes#destroy_all', as: 'destroy_all'
-  resources :posts, only: [:create, :show, :edit, :update, :destroy]
+  resources :posts, only: [:create, :show, :edit, :update, :destroy] do
+    collection do
+      get :spots_select
+    end
+  end
   get 'posts/new/:id' => 'posts#new' , as:'new_post'
+  get '/news' => 'posts#news' ,as:'news'
   get 'posts/autocomplete_spot/:term' => 'posts#autocomplete_spot'
   resources :plans, only: [:create, :index, :edit, :update, :destroy]
   get 'plans/new/:id' => 'plans#new', as:'new_plan'

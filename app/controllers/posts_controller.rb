@@ -1,6 +1,12 @@
 class PostsController < ApplicationController
 	before_action :authenticate_user!
 
+  def spots_select
+    if request.xhr?
+      render partial: 'posts/spots', locals: {category_id: params[:category_id]}
+    end
+  end
+
 	def new
 		@spot = Spot.find(params[:id])
 		@post = Post.new
@@ -8,19 +14,20 @@ class PostsController < ApplicationController
 		@post.spot_id = @spot.id
 	end
 
-	def autocomplete_spot
-		spot_suggestions = Spot.autocomplete(params[:term]).pluck(:name)
-		respond_to do |format|
-			format.html
-			format.json{
-				render json: spot_suggestions
-			}
-		end
-	end
+  def news
+    @post = Post.new
+    @spot = @post.spot
+    @post_image = @post.post_images.build
+  end
 
 	def create
-		@spot = Spot.find(params[:post][:spot_id])
-		@post = Post.new(post_params)
+		if @spot != nil
+			@spot = Spot.find(params[:post][:spot_id])
+			@post = Post.new(post_params)
+		else
+			@post = Post.new(post_params)
+			@spot = @post.spot
+		end
 		@post.user_id = current_user.id
 		if @post.save
   		redirect_to root_path
