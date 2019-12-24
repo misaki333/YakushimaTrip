@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @spot = Spot.find(params[:spot_id])
     like = current_user.likes.build(spot_id: params[:spot_id])

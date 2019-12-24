@@ -7,7 +7,7 @@
     <div class="destination_select">
       <div class="destination_category">
         <%= f.label :category, "カテゴリー" %>
-        <%= f.collection_select :category, Category.all, :id, :name, id: 'destination_category'%>
+        <%= f.collection_select :category, Category.all, :id, :name, {}, {class: "destination_category_select"} %>
       </div>
 
       <div class="destination_spot">
@@ -25,3 +25,46 @@
     </div>
   </div>
 </div>
+
+<script>
+$('.destination_category_select').keyup(function(){
+
+})
+
+
+
+$(document).on('change', '.destination_category_select', function() {
+  console.log(this);
+  return $.ajax({
+    type: 'GET',
+    url: '/destinations/spots_select',
+    data: {
+      category_id: $(this).val()
+    }
+  }).done(function(data) {
+    return $('.destination_select_for_spots_[]').html(data);
+  });
+});
+</script>
+
+<script>
+    $('#quantity, #price').keyup(function(){
+        var cant = parseFloat(this.nextElementSibling('#quantity').val()) || 0;
+        var price = parseFloat(this.nextElementSibling('#price').val()) || 0;
+        var result = cant * price
+        this.nextElementSibling('.result').val(result);
+    })
+</script>
+
+
+
+$('#テキストボックスのid').keyup(function() {
+    isChange = true;
+});
+
+$('#セレクトボックスのid').change(function() {
+    isChange = true;
+});
+
+
+
