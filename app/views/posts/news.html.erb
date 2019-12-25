@@ -12,6 +12,8 @@
       <div class="spot_select">
         <%= f.label :spot, "スポット" %>
         <%= render partial: 'spots', locals: {category_id: Category.first.id} %>
+        <%#= render partial: 'spots', locals: {category_id: Category.first.id, f: f} %>
+
       </div>
     </div>
 
@@ -81,7 +83,7 @@ $(document).on('change', '#post_spot_category', function() {
       category_id: $(this).val()
     }
   }).done(function(data) {
-    return $('#post_spot').html(data);
+    return $('#spot_spot').html(data);
   });
 });
 </script>

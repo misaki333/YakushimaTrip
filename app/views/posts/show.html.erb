@@ -5,7 +5,9 @@
 
 	<div class="post_day">
 		<%= @post.created_at.strftime("%Y年%m月%d日")  %>
-		<%= link_to "編集", edit_post_path(@post.id), class:"glyphicon glyphicon-pencil" %>
+		<% if @post.user == current_user %>
+			<%= link_to "編集", edit_post_path(@post.id), class:"glyphicon glyphicon-pencil" %>
+		<% end %>
 	</div>
 
 	<% @post_images.each_slice(2) do |image1, image2| %>
@@ -20,9 +22,9 @@
 		</div>
 	<% end %>
 
-	<div>
-		<label class="spot_name">観光地名称</label>
+	<div class="post_show_name">
 		<%= @post.spot.name %>
+	</div>
 
 	<div class="post_visit_day">
 		<label class="visit_date">訪問日</label>

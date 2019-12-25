@@ -26,9 +26,10 @@ class PostsController < ApplicationController
 			@post = Post.new(post_params)
 		else
 			@post = Post.new(post_params)
-			@spot = @post.spot
+			@spot = Spot.find(params[:spot][:spot])
 		end
 		@post.user_id = current_user.id
+		@post.spot_id = @spot.id
 		if @post.save
   		redirect_to post_path(@post.id)
 		end
@@ -45,8 +46,8 @@ class PostsController < ApplicationController
 	end
 
 	def update
-		@spot = Spot.find_by(name: params[:post][:spot_id])
 		@post = Post.find(params[:id])
+		@spot = @post.spot
 		@post.spot_id = @spot.id
 		if @post.update(post_params)
 			redirect_to post_path(@post.id)
