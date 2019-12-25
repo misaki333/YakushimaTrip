@@ -10,21 +10,24 @@
 
 	<div class="spot_show_second clearfix">
 
-
 		<div class="spot_images">
 	    <% @posts.each do |post| %>
 	      <% post.post_images.each_slice(2) do |image1, image2| %>
 	        <div  class="spot_image">
-	        	<% if image1 != nil %>
-		          <%= link_to post_path(post.id) do %>
-		            <%= attachment_image_tag image1, :image, :fill, 200, 150 %>
-		          <% end %>
-		        <% end %>
-	        	<% if image2 != nil %>
-		          <%= link_to post_path(post.id) do %>
-		            <%= attachment_image_tag image2, :image, :fill, 200, 150 %>
-		          <% end %>
-		        <% end %>
+	        	<div class="spot_image_first">
+		        	<% if image1 != nil %>
+			          <%= link_to post_path(post.id) do %>
+			            <%= attachment_image_tag image1, :image, :fill, 200, 150 %>
+			          <% end %>
+			        <% end %>
+			       </div>
+			       <div class="spot_image_second">
+		        	<% if image2 != nil %>
+			          <%= link_to post_path(post.id) do %>
+			            <%= attachment_image_tag image2, :image, :fill, 200, 150 %>
+			          <% end %>
+			        <% end %>
+			      </div>
 	        </div>
 	      <% end %>
 	     <% end %>
@@ -33,8 +36,7 @@
 		<div class="spot_show_text">
 
 		<% if user_signed_in? %>
-
-			<div class="spot_name"><%= @spot.name %></div>
+			<div class="spot_show_name"><%= @spot.name %></div>
       <div id="likes_buttons_<%= @spot.id %>">
          <%= render partial: 'likes/like', locals: { spot: @spot} %>
       </div>
@@ -49,10 +51,8 @@
 				<%= @spot.address %>
 			</div>
 			<div class="content"><%= @spot.content %></div>
-
 		<% else %>
-
-			<div class="spot_name"><%= @spot.name %></div>
+			<div class="spot_show_name"><%= @spot.name %></div>
 			<div class="spot_category">
 				<div class="category_name"><%= @spot.category.name %></div>
 			</div>
@@ -61,7 +61,6 @@
 				<%= @spot.address %>
 			</div>
 			<div class="content"><%= @spot.content %></div>
-
 		<% end %>
 
 			<% if @posts.any? %>
@@ -71,9 +70,10 @@
 							<label>投稿日</label>
 								<%= post.created_at.strftime("%Y/%m/%d") %>
 						</div>
-						<div>
+						<div class="spot_visit_day">
 							<label>訪問日</label>
 								<%= post.visit_date.strftime("%Y/%m/%d") %>
+							<div class="spot_post_user"><%= post.user.name %>さん</div>
 						</div>
 						<div class="spot_comment">
 							<%= post.impression %>

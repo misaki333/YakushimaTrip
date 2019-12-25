@@ -139,24 +139,38 @@
 	margin-left: 3em;
 	padding-top: 3em;
 	padding-bottom: 3em;
+	float: left;
 }
 
 .spot_image {
-	width: 100%;
+}
+
+.spot_show_image {
+}
+
+.spot_image_first {
+	float: left;
+	margin-right: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.spot_image_second {
+	float: left;
+	margin-bottom: 0.5em;
 }
 
 .spot_show_text {
 	width: 50%;
 	float: right;
+	padding-top: 2em;
 	margin-right: 3em;
-	padding-top: 3em;
 	padding-bottom: 3em;
 }
 
-.spot_name {
+.spot_show_name {
 	padding-top: 0.5em;
 	font-weight: bold;
-	font-size: 2em;
+	font-size: 2.5em;
 }
 
 .heart li{
@@ -214,8 +228,17 @@
 	padding-right: 0.5em;
 }
 
-.spot_comment {
+.spot_visit_day {
+	padding-left: 0.5em;
+}
 
+.spot_post_user {
+	float: right;
+	padding-right: 0.5em;
+}
+
+.spot_comment {
+	padding-left: 0.5em;
 }
 
 .spot_comment_none {
