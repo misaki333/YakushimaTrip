@@ -20,9 +20,9 @@
 </div>
 
 <div class="user_links">
-	 <%= link_to "マイページ", mypage_path %>
+	 <%= link_to "マイページ", mypage_path(current_user.id) %>
 </div>
 
 <div class="user_links">
-	 <%= link_to "退会する", exit_path(@user.id) %>
+	 <%= link_to "退会する", exit_path(current_user.id) %>
 </div>

@@ -1,24 +1,45 @@
-<h2>観光地の登録</h2>
+<div class="admin_spot_new">
+	<p class = "notice"><%= flash[:success] %></p>
+	<h2>観光地の登録</h2>
 
-<%= form_for @spot, url:admin_spot_path do |f| %>
-	<label>画像</label>
-	<%= attachment_image_tag @item, :image_id, :fill, 50, 50, format: 'jpg', fallback: "no_image.jpg" %>
-	<%= f.attachment_field :image %>
+	<%= form_for @spot, url:admin_spots_path do |f| %>
+	<table class="table-striped" >
+		<tr>
+			<th width="30%"></th>
+			<td colspan="2">
+				<%= attachment_image_tag @item, :image_id, :fill, 50, 50, format: 'jpg', fallback: "no_image.jpg" %>
+				<%= f.attachment_field :image %>
+		 	</td>
+		</tr>
 
-	<label>観光地名</label>
-	<%= f.text_field :name, autofocus:true %>
+		<tr>
+		<th>観光地名</th>
+		<td colspan="2"><%= f.text_field :name, autofocus:true %></td>
+		</tr>
 
-	<label>住所</label>
-	<%= f.text_field :address %>
+		<tr>
+		<th>住所</th>
+		<td colspan="2"><%= f.text_field :address, :size=>"60" %></td>
+		</tr>
 
-  <label>ジャンル</label>
-	<%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "選択してください" %>
-	<%= link_to "登録", new_admin_category_path %>
+	  <tr>
+	  <th>ジャンル</th>
+		<td><%= f.collection_select :category_id, Category.all, :id, :name, :prompt => "選択してください" %></td>
+		<td><%= link_to "カテゴリーの新規登録", admin_categories_path %></td>
+		</tr>
 
-	<label>説明</label>
-	<%= f.text_area :content %>
+		<tr>
+		<th>説明</th>
+		<td colspan="2"><%= f.text_area :content, :size=>"60" %></td>
+		</tr>
 
-	<%= f.submit "登録", class:'button btn btn-success' %>
+		<%= f.hidden_field :latitude, :value => @spot.latitude %>
+		<%= f.hidden_field :longitude, :value => @spot.longitude %>
 
-<% end %>
+	</table>
+
+		<div class="admin_spot_new_btn"><%= f.submit "登録", class:'button btn btn-success' %></div>
+
+	<% end %>
+</div>
 

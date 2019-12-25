@@ -1,7 +1,8 @@
 class Admin::CategoriesController < ApplicationController
-	def new
+	def index
 		if admin_signed_in?
 			@category = Category.new
+			@categories = Category.all
 		else
 			redirect_to root_path
 		end
@@ -10,9 +11,10 @@ class Admin::CategoriesController < ApplicationController
 	def create
 		@category = Category.new(category_params)
 		if @category.save
-			redirect_to new_admin_category_path
+			redirect_to admin_categories_path
 		else
 			render 'new'
+		end
 	end
 
 	def edit

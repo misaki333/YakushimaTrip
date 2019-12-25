@@ -59,11 +59,16 @@
       <%= f.text_area :impression, size: "50x10" %>
     </div>
 
-    <%= f.submit "投稿", class:"btn btn-primary" %>
+    <div class="post_news_btn">
+      <%= f.submit "投稿", class:"btn btn-primary" %>
+    </div>
 
   <% end %>
 </div>
 
+<div class="user_links">
+ <%= link_to "マイページ", mypage_path(current_user.id) %>
+</div>
 
 
 <script>

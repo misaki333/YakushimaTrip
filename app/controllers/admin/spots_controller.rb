@@ -12,6 +12,7 @@ class Admin::SpotsController < ApplicationController
 		@spot = Spot.new(spot_params)
 		@spot.category_id = @category.id
 		if @spot.save
+			flash[:success] = "観光地をしました。"
 			redirect_to new_admin_spot_path
 		else
 			render 'new'
@@ -29,7 +30,7 @@ class Admin::SpotsController < ApplicationController
 	def update
 		@category = Category.find_by(name: params[:spot][:category_id])
 		@spot = Spot.find(params[:id])
-		@spot.category_id = @category.id
+		@spot.category_id = @spot.category.id
 		if @spot.update(spot_params)
 			redirect_to admin_spot_path(params[:id])
 		else
