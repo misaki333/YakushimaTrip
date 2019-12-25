@@ -14,6 +14,7 @@ class Admin::PostsController < ApplicationController
 		if admin_signed_in?
 			@post = Post.find(params[:id])
 			@post_images = PostImage.where(post_id: @post.id)
+		end
 	end
 
 	def edit

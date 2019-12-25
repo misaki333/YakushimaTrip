@@ -2,10 +2,11 @@ Rails.application.routes.draw do
   # 管理者
   devise_for :admins
   namespace :admin do
-  	resources :users, only: [:show, :edit, :update, :index, :destroy]
+  	resources :users, only: [:show, :index, :destroy]
+    get '/menu' => 'users#menu', as: 'menu'
     resources :spots
     resources :posts, only: [:show, :edit, :update, :index, :destroy]
-    resources :categories, only: [:new, :create, :edit, :update, :destroy]
+    resources :categories, only: [:index, :create, :edit, :update, :destroy]
   end
 
   # ユーザ
