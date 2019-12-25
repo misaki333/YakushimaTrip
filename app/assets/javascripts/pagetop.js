@@ -1,5 +1,5 @@
 $(function() {
-  $('#pagetop a').on('click',function(){
+  $('#pageTop a').on('click',function(){
     $('body, html').animate({
       scrollTop:0
     }, 800);
