@@ -1,8 +1,8 @@
 $ ->
-  $("#post_spot_field").autocomplete
+  $("#plan_spot_field").autocomplete
     source: (req, res) ->
       $.ajax
-        url: "/posts/autocomplete_spot/" + encodeURIComponent(req.term) + ".json",
+        url: "/plans/autocomplete_spot/" + encodeURIComponent(req.term) + ".json",
         dataType: "json",
         success: (data) ->
           res(data)

@@ -31,9 +31,8 @@
    	})
     </script>
 
-		<div class="field">
-			<label class="spot_name">観光地名称</label>
-			<%= f.text_field :spot_id, :value => @post.spot.name, id: "post_spot_field" %>
+		<div class="post_edit_name">
+			<%= @post.spot.name %>
 		</div>
 
 		<div class="date_input">
@@ -52,11 +51,13 @@
 			<%= f.text_area :impression %>
 		</div>
 
-		<%= f.submit "編集", class:"btn btn-primary" %>
+		<div class="post_edit_btn">
+			<%= f.submit "編集", class:"btn btn-primary" %>
 
-	<% end %>
-	<%= link_to "削除", post_path, method: :delete, class: 'btn btn-denger', data:
-	 { confirm: "本当に削除しますか？",
-		 cancel: "戻る",
-		 commit: "削除"}, title:"削除の確認" %>
+			<%= link_to "削除", post_path, method: :delete, class: 'btn btn-danger', data:
+				 { confirm: "本当に削除しますか？",
+					 cancel: "戻る",
+					 commit: "削除"}, title:"削除の確認" %>
+		<% end %>
+	</div>
 </div>

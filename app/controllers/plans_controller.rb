@@ -1,6 +1,16 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!
 
+  def autocomplete_spot
+    spot_suggestions = Spot.autocomplete(params[:term]).pluck(:name)
+    respond_to do |format|
+      format.html
+      format.json{
+        render json: spot_suggestions
+      }
+    end
+  end
+
   def spots_select
     if request.xhr?
       render partial: 'spots', locals: {category_id: params[:category_id]}
@@ -68,7 +78,7 @@ class PlansController < ApplicationController
 
   def nest_plan_params
     params.require(:plan).permit(:name, :start_date, :end_date,
-      destinations_attributes: [:id, :time, :to_do, :_destroy])
+      destinations_attributes: [:id, :time, :to_do, :to_go, :_destroy])
   end
 end
 
