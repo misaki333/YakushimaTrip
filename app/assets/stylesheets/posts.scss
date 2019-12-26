@@ -18,6 +18,11 @@
 	position: relative;
 }
 
+.imgPreview {
+  width: 280px;
+  height: 200px;
+  margin: 0 auto;
+}
 
 .imgPreview:hover {
   background-color: #EDBC6C;
@@ -27,8 +32,8 @@
 
 
 .imageFile {
-	width: 430px;
-	height: 300px;
+	width: 280px;
+	height: 200px;
 	background-position: center 50% 50%;
 }
 
