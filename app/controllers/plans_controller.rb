@@ -68,7 +68,7 @@ class PlansController < ApplicationController
   def destroy
     @plan = Plan.find(params[:id])
     @plan.destroy
-    redirect_to plan_path
+    redirect_to plans_path
   end
 
   private
@@ -78,7 +78,7 @@ class PlansController < ApplicationController
 
   def nest_plan_params
     params.require(:plan).permit(:name, :start_date, :end_date,
-      destinations_attributes: [:id, :time, :to_do, :to_go, :_destroy])
+      destinations_attributes: [:id, :time, :to_do, :_destroy])
   end
 end
 

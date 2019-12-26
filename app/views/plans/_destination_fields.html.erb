@@ -1,15 +1,16 @@
 <div class="nested-fields">
   <div class="destination-edit clearfix">
     <div class="destination_time clearfix">
-      <%= f.time_select :time, {}, class: 'form_date_select', include_blank: true %>
+      <%= f.time_select :time, class: 'form_date_select', :minute_step => 15 %>
     </div>
 
     <div class="destination_select">
 
       <div class="destination_spot">
-        <%= f.label :to_go, "スポット" %>
-        <%= f.text_field :to_go %>
+        <%= f.label :spot, "スポット" %>
+        <%= collection_select :destination, :spot, Spot.all, :id, :name %>
       </div>
+
 
       <div class="plan_content">
         <%= f.text_area :to_do, class: 'form-control' %>
@@ -22,4 +23,28 @@
   </div>
 </div>
 
+    <script>
+    var counter = 0;
+    document.addEventListener("turbolinks:load", function() {
+      $('.nested-fields')
+        .on('cocoon:after-insert', function(e, insertedItem) {
+          $(insertedItem).find('.spotForm').attr('id', 'spotForm_' + counter++);
 
+          $(".spotForm").change(function() {
+            var id = $(this).attr('id');
+
+            $(document).on('change', '#parent', function() {
+              console.log(this);
+              return $.ajax({
+                type: 'GET',
+                url: '/destinations/spots_select',
+                data: {
+                  category_id: $(this).val()
+                }
+              }).done(function(data) {
+                return $('.spotForm').html(data);
+              });
+            });
+        })
+    })
+    </script>
