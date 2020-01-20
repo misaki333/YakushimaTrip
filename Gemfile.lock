@@ -58,6 +58,16 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.7.3)
       execjs
+    aws-eventstream (1.0.3)
+    aws-sdk (2.11.432)
+      aws-sdk-resources (= 2.11.432)
+    aws-sdk-core (2.11.432)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-resources (2.11.432)
+      aws-sdk-core (= 2.11.432)
+    aws-sigv4 (1.1.0)
+      aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.5)
@@ -105,6 +115,10 @@ GEM
     devise-i18n-views (0.3.7)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.7.5)
+    dotenv-rails (2.7.5)
+      dotenv (= 2.7.5)
+      railties (>= 3.2, < 6.1)
     erubi (1.9.0)
     execjs (2.7.0)
     ffi (1.11.3)
@@ -122,6 +136,7 @@ GEM
     io-like (0.3.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    jmespath (1.4.0)
     jquery-rails (4.3.5)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -226,6 +241,9 @@ GEM
     refile-mini_magick (0.2.0)
       mini_magick (~> 4.0)
       refile (~> 0.5)
+    refile-s3 (0.2.0)
+      aws-sdk (~> 2.0)
+      refile (~> 0.6.0)
     regexp_parser (1.6.0)
     responders (3.0.0)
       actionpack (>= 5.0)
@@ -312,6 +330,7 @@ DEPENDENCIES
   devise
   devise-i18n
   devise-i18n-views
+  dotenv-rails
   font-awesome-sass
   geocoder
   gmaps4rails
@@ -330,6 +349,7 @@ DEPENDENCIES
   ransack
   refile!
   refile-mini_magick
+  refile-s3
   sass-rails (~> 5.0)
   selenium-webdriver
   spring

@@ -81,6 +81,8 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'dotenv-rails'
+gem 'refile-s3'
 
 group :production do
   gem 'mysql2'
