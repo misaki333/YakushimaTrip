@@ -3,7 +3,7 @@ class SpotsController < ApplicationController
     if Rails.env.production?
 		  @random = Spot.order("RAND()").limit(5)
     else
-		  @random = Spot.order("RANDOM()").limit(5)
+      @random = Spot.order("RANDOM()").limit(5)
     end
     @spots = Spot.all
 	end
