@@ -12,7 +12,7 @@ class Admin::SpotsController < ApplicationController
 		@spot = Spot.new(spot_params)
 		@spot.category_id = @category.id
 		if @spot.save
-			flash[:success] = "観光地をしました。"
+			flash[:success] = "観光地を登録しました。"
 			redirect_to new_admin_spot_path
 		else
 			render 'new'
