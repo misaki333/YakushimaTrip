@@ -18,12 +18,8 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def destroy
-	end
-
 	def mypage
 		@user = User.find(params[:id])
-		@posts = @user.posts
 	end
 
 	def exit
@@ -34,4 +30,5 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit(:name, :email, :password)
 	end
+
 end
