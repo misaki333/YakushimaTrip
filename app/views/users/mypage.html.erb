@@ -2,18 +2,22 @@
   <div class=" user_menu">
     <%= link_to user_path(@user.id), class: 'mypage_button' do %>
       <i class="fas fa-user-alt" style="font-size: 60px"></i>
+      <div class="user_menu_text">会員情報</div>
     <% end %>
 
     <%= link_to news_path, class: 'mypage_button' do %>
       <i class="fas fa-pen" style="font-size: 60px"></i>
+      <div class="user_menu_text">投稿</div>
     <% end %>
 
     <%= link_to likes_path, class: 'mypage_button' do %>
       <i class="fas fa-heart" style="font-size: 60px"></i>
+      <div class="user_menu_text">お気に入り</div>
     <% end %>
 
     <%= link_to plans_path, class: 'mypage_button' do %>
       <i class="fas fa-book-open" style="font-size: 60px"></i>
+      <div class="user_menu_text">旅のしおり</div>
     <% end %>
   </div>
 
