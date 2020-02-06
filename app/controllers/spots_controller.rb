@@ -1,11 +1,12 @@
 class SpotsController < ApplicationController
   def index
     if Rails.env.producion?
-      @random = Spot.order("RAND()").limit(5)
+      @random = Spot.order("RAND()").limit(6)
     else
-      @random = Spot.order("RANDOM()").limit(5)
+      @random = Spot.order("RANDOM()").limit(6)
     end
     @spots = Spot.all
+    @categories = Category.all
   end
 
   def show
